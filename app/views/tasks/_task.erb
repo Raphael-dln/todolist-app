@@ -1,6 +1,9 @@
-<li>
+<li id='<%= task.id %>'>
   <%= task.title  %>
   <% unless task.deadline.nil? %>
     , to read: <%= task.deadline.strftime('%D')  %>
+  <% end %>
+  <%= link_to task_path(task), method: :delete, remote: true, data: { confirm: 'Are you sure?' } do %>
+    <i class="fa fa-trash" aria-hidden="true"></i>
   <% end %>
 </li>
